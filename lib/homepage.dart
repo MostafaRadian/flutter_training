@@ -8,13 +8,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late int number;
-
-  @override
-  void initState() {
-    super.initState();
-    number = 0;
-  }
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -29,47 +24,28 @@ class _HomePageState extends State<HomePage> {
       ),
       body: SafeArea(
         child: SizedBox(
-          height: double.infinity,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          width: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(50)),
-                child: IconButton(
-                    onPressed: () {
-                      setState(
-                        () {
-                          number++;
-                        },
-                      );
-                    },
-                    icon: const Icon(
-                      Icons.add,
-                      size: 50,
-                    )),
+              TextFormField(
+                controller: email,
+                decoration: InputDecoration(
+                    focusColor: Colors.blue,
+                    labelText: 'Email',
+                    border: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.blue),
+                        borderRadius: BorderRadius.circular(40))),
               ),
-              Text(
-                '$number',
-                style: const TextStyle(fontSize: 50),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(50)),
-                child: IconButton(
-                    onPressed: () {
-                      setState(() {
-                        number--;
-                      });
-                    },
-                    icon: const Icon(
-                      Icons.remove,
-                      size: 50,
-                    )),
-              ),
+              TextFormField(
+                controller: password,
+                decoration: const InputDecoration(
+                  focusColor: Colors.blue,
+                  labelText: 'password',
+                ),
+                obscureText: true,
+              )
             ],
           ),
         ),
