@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
                         borderSide: const BorderSide(color: Colors.blue),
                         borderRadius: BorderRadius.circular(40))),
               ),
-              TextFormField(hjb
+              TextFormField(
                 controller: password,
                 decoration: const InputDecoration(
                   focusColor: Colors.blue,
